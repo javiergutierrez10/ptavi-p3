@@ -45,7 +45,7 @@ class SmallSMILHandler(ContentHandler):
             self.variable.append(self.id)
             self.variable.append(self.top)
             self.variable.append(self.bottom)
-            self.variable.append(self.letf)
+            self.variable.append(self.left)
             self.variable.append(self.right)             
         elif name == 'img':
             self.variable.append('img')
