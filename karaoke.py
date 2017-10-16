@@ -5,6 +5,7 @@ from xml.sax import make_parser
 from xml.sax.handler import ContentHandler
 import sys
 from smallsmilhandler import SmallSMILHandler
+import json
 
 if __name__ == "__main__":
 
@@ -36,3 +37,8 @@ if __name__ == "__main__":
         par = par + 2
         impar = impar + 2
     print(linea)
+
+    namefile = sys.argv[1].split('.')
+    namefile = namefile[0] + '.json'
+    with open(namefile, 'w') as file:
+        json.dump(linea, file)
