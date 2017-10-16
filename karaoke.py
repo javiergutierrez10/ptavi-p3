@@ -7,16 +7,32 @@ import sys
 from smallsmilhandler import SmallSMILHandler
 
 if __name__ == "__main__":
-    
+
     try:
         filesmil = sys.argv[1]
     except IndexError:
         sys.exit("Usage: python3 karaoke.py file.smil")
-    
-    parser = make_parser() #Salto línea a línea
+
+    parser = make_parser()
     cHandler = SmallSMILHandler()
-    parser.setContentHandler(cHandler) #ligar el parser con el manejador
-    parser.parse(open(filesmil)) #parseame el archivo
+    parser.setContentHandler(cHandler)
+    parser.parse(open(filesmil))
     data = cHandler.get_tags()
-    
-    
+
+    linea = "\n"
+    j = 1
+    par = 0
+    impar = 1
+    while j < (len(data)/2):
+        linea = linea + data[par] + "\t"
+        i = 1
+        while i < len(data[impar]):
+            tmp_linea = ""
+            tmp_linea = data[impar][i-1] + '="' + data[impar][i] + '"' + "\t"
+            i = i + 2
+            linea = linea + tmp_linea
+        linea = linea + "\n"
+        j = j + 1
+        par = par + 2
+        impar = impar + 2
+    print(linea)
