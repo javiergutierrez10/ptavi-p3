@@ -6,6 +6,7 @@ from xml.sax.handler import ContentHandler
 import sys
 from smallsmilhandler import SmallSMILHandler
 import json
+import urllib.request
 
 if __name__ == "__main__":
 
@@ -42,3 +43,12 @@ if __name__ == "__main__":
     namefile = namefile[0] + '.json'
     with open(namefile, 'w') as file:
         json.dump(linea, file)
+
+#    j = 1
+#    impar = 1
+#    while j < len(data):
+#        i = 1
+#        while i < len(data[impar]):
+#           if 'src' in (data[impar][i-1]):
+#                src = data[impar][i]
+#               urllib.request.urlretrieve(src)
