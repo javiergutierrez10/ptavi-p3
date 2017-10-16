@@ -25,8 +25,8 @@ class SmallSMILHandler(ContentHandler):
                 if value != "":
                     self.datalist.append(value)
 
-        def get_tags(self):
-            return self.datalist
+    def get_tags(self):
+        return self.datalist
 
 if __name__ == "__main__":
 
@@ -34,5 +34,4 @@ if __name__ == "__main__":
     cHandler = SmallSMILHandler()
     parser.setContentHandler(cHandler) #ligar el parser con el manejador
     parser.parse(open('karaoke.smil')) #parseame el archivo
-    print(cHandler.datalist)
-
+    print(cHandler.get_tags())
